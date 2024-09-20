@@ -19,9 +19,9 @@ let project = Project(
             sources: ["RandomTalkTalk/Sources/**"],
             resources: ["RandomTalkTalk/Resources/**"],
             dependencies: [
-                .external(name: "Firebase"),
+                .external(name: "FirebaseFirestore"),
                 .external(name: "ComposableArchitecture"),
-                .external(name: "Moya")
+                .external(name: "Moya"),
             ]
         ),
         .target(
