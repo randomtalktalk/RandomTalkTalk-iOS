@@ -1,4 +1,5 @@
 import SwiftUI
+import FirebaseFirestore
 
 public struct ContentView: View {
     public init() {}
