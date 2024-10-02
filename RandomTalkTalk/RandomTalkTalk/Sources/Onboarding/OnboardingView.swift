@@ -35,11 +35,13 @@ struct OnboardingView: View {
                             .stroke(Color.black, lineWidth: 2)
                         
                     )
+                    .onAppear {
+                        store.send(.diceButtonTapped)
+                    }
                 
                 Spacer()
                 
                 Button {
-                    // TODO: 주사위 눌렸을 때 동작
                     store.send(.diceButtonTapped)
                 } label: {
                     Image(systemName: "dice")
@@ -65,6 +67,7 @@ struct OnboardingView: View {
         }
         .padding(.bottom, 300)
     }
+    
 }
 
 #Preview {

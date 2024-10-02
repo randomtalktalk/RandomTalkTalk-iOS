@@ -13,7 +13,7 @@ struct OnboardingFeature {
     @ObservableState
     struct State: Equatable {
         
-        var nickname: String = "초기 닉네임" // TODO: 초기값 설정
+        var nickname: String = ""
         
     }
     
