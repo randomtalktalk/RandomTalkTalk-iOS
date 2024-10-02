@@ -6,8 +6,12 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct OnboardingView: View {
+    
+    @Bindable var store: StoreOf<OnboardingFeature>
+    
     var body: some View {
         
         VStack(spacing: 50) {
@@ -22,8 +26,8 @@ struct OnboardingView: View {
                 )
             
             HStack {
-                Text("닉네임")
-                    .font(.largeTitle)
+                Text(store.nickname)
+                    .font(.title2)
                     .fontWeight(.bold)
                     .padding()
                     .overlay(
@@ -35,7 +39,8 @@ struct OnboardingView: View {
                 Spacer()
                 
                 Button {
-                    print("주사위 눌림")
+                    // TODO: 주사위 눌렸을 때 동작
+                    store.send(.diceButtonTapped)
                 } label: {
                     Image(systemName: "dice")
                         .resizable()
@@ -46,6 +51,7 @@ struct OnboardingView: View {
             .padding(.horizontal, 50)
             
             Button {
+                // TODO: 채팅 매칭 버튼 눌렸을 때 동작
                 print("버튼 눌림")
             } label: {
                 Text("채팅 시작")
@@ -62,5 +68,12 @@ struct OnboardingView: View {
 }
 
 #Preview {
-    OnboardingView()
+    OnboardingView(
+        store: Store(
+            initialState: OnboardingFeature.State(),
+            reducer: {
+                OnboardingFeature()
+            }
+        )
+    )
 }
