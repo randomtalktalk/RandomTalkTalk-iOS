@@ -22,7 +22,6 @@ struct OnboardingView: View {
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(Color.black, lineWidth: 2)
-                    
                 )
             
             HStack {
@@ -33,7 +32,6 @@ struct OnboardingView: View {
                     .overlay(
                         RoundedRectangle(cornerRadius: 10)
                             .stroke(Color.black, lineWidth: 2)
-                        
                     )
                     .onAppear {
                         store.send(.diceButtonTapped)
